@@ -31,21 +31,22 @@
   <form>
     <table>
       <tr>
-        <td>What's the cursor Position?<br/><span class="subtitle">(eg 2 or 2.1 or 2.1.100)</span></td>
-        <td><input id="cursorPosition" type="text" oninput="calculate()" maxlength="14"/></td>
-      </tr>
-      <tr>
-        <td>What's the Length?<br/><span class="subtitle">(eg 4 or 4.0.0)</span></td>
+        <td>What's the end time of the loop?<br/><span class="subtitle">(eg 9 or 9.0.0)</span></td>
         <td><input id="maxTime" type="text" oninput="calculate()" maxlength="14"/></td>
       </tr>
       <tr>
         <td>What's the total beats?<br/><span class="subtitle">(eg 32)</span></td>
         <td><input id="totalBeats" type="text" oninput="calculate()" maxlength="4"/></td>
       </tr>
+      <tr>
+        <td>What are the cursor Positions? (one per line)<br/><span class="subtitle">(eg 2 or 2.1 or 2.1.100)</span></td>
+        <td><textarea id="cursorPositions" type="text" oninput="calculate()" maxlength="14"></textarea></td>
+      </tr>
     </table>
   </form>
 
-  <p>The answer is "<span id="answer"></span>"</p>
+  <p>Beatsync is <br /><span id="answer-rounded"></span></p>
+  <p class="subtitle">aka <br/><span id="answer-raw"></span></p>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
