@@ -10,7 +10,7 @@ function calculate() {
   })
   //
   document.getElementById("answer-raw").innerText = calculated.join("\n");
-  document.getElementById("answer-rounded").innerText = calculated.map((value,index) => convertDecimalToHex(index+1) + " > " + convertIndexToNote(index) + " > " + Math.round(value).toString(10)).join("\n");
+  document.getElementById("answer-rounded").innerText = calculated.map((value,index) => convertDecimalToHex(index+1) + " > " + convertIndexToNote(index+1) + " > " + Math.round(value).toString(10)).join("\n");
 }
 
 const convertDecimalToHex = (decimal) => {
