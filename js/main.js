@@ -3,15 +3,23 @@ function calculate() {
   const maxTime = document.getElementById("maxTime").value
   const totalBeats = document.getElementById("totalBeats").value
   const positions = document.getElementById("cursorPositions").value
+
+  const mapHexNoteValue = (valueIn, index) => {
+    const value = convertValue(valueIn, maxTime, totalBeats);
+    if (isNaN(Math.round(value))) return valueIn;
+    return convertDecimalToHex(index+1) + " > " + convertIndexToNote(index+1) + " > " + Math.round(value).toString(10)
+  }
+  document.getElementById("answer-rounded").innerText = positions.split("\n").map(mapHexNoteValue).join("\n");
+  //
   const calculated = [];
   positions.split("\n").forEach((position, index) => {
     const value = convertValue(position, maxTime, totalBeats);
     calculated.push(value);
   })
-  //
   document.getElementById("answer-raw").innerText = calculated.join("\n");
-  document.getElementById("answer-rounded").innerText = calculated.map((value,index) => convertDecimalToHex(index+1) + " > " + convertIndexToNote(index+1) + " > " + Math.round(value).toString(10)).join("\n");
 }
+
+
 
 const convertDecimalToHex = (decimal) => {
   let str = parseInt(decimal).toString(16).toUpperCase();
