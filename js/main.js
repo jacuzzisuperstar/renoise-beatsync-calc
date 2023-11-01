@@ -10,13 +10,20 @@ function calculate() {
   })
   //
   document.getElementById("answer-raw").innerText = calculated.join("\n");
-  document.getElementById("answer-rounded").innerText = calculated.map((value,index) => convertDecimalToHex(index+1) + " > " + Math.round(value).toString(10)).join("\n");
+  document.getElementById("answer-rounded").innerText = calculated.map((value,index) => convertDecimalToHex(index+1) + " > " + convertIndexToNote(index) + " > " + Math.round(value).toString(10)).join("\n");
 }
 
 const convertDecimalToHex = (decimal) => {
-  let str = parseInt(decimal).toString(16);
+  let str = parseInt(decimal).toString(16).toUpperCase();
   if (str.length < 2) str = "0" + str;
   return str;
+}
+
+const convertIndexToNote = (index) => {
+  const notes = ["C-","C#","D-","D#","E-","F-","F#","G-","G#","A-",];
+  const note = notes[ index % notes.length ];
+  const octave = Math.ceil((index+1)/notes.length);
+  return `${note}${octave}`
 }
 
 const convertValue = function(cursorPosition, maxTime, totalBeats) {
