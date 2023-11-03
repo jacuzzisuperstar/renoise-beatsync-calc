@@ -28,7 +28,7 @@ const convertDecimalToHex = (decimal) => {
 }
 
 const convertIndexToNote = (index) => {
-  const notes = ["C-","C#","D-","D#","E-","F-","F#","G-","G#","A-",];
+  const notes = ["C-","C#","D-","D#","E-","F-","F#","G-","G#","A-","A#","B-"];
   const note = notes[ index % notes.length ];
   const octave = Math.ceil((index+1)/notes.length);
   return `${note}${octave}`
